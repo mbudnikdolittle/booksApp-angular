@@ -1,0 +1,6 @@
+{
+    "books": [
+      { "id": 1, "title": "Harry Potter i Kamień Filozoficzny", "author": "J.K. Rowling" },
+      { "id": 2, "title": "Ostatnie życzenie", "author": "Andrzej Sapkowski" }
+    ]
+}

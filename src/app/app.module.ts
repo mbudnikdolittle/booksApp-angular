@@ -1,6 +1,7 @@
+import { RetryInterceptor } from './interceptors/retry.interceptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { InfoComponent } from './components/info/info.component';
 import { BookComponent } from './components/book/book.component';
 import {HeaderComponent} from "./shared/header/header.component";
 import { BooksListComponent } from './components/books-list/books-list.component';
+import { ErrorInterceptor } from './interceptors/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,15 @@ import { BooksListComponent } from './components/books-list/books-list.component
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: RetryInterceptor,
+    multi: true
+  }, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: ErrorInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

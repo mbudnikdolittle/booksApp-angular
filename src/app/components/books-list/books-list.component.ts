@@ -17,7 +17,7 @@ export class BooksListComponent implements OnInit {
   }
 
   getBooks() {
-    this.http.get('/api/books-list').subscribe(data => console.log(data))
+    this.http.get('/api/books').subscribe(data => console.log(data))
   }
 
   addBookTitle(newBookTitle: string) {

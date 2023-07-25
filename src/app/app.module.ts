@@ -12,6 +12,8 @@ import {HeaderComponent} from "./shared/header/header.component";
 import { BooksListComponent } from './components/books-list/books-list.component';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { AddBookComponent } from './components/add-book/add-book.component';
+import { LoaderComponent } from './shared/loader/loader.component';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { AddBookComponent } from './components/add-book/add-book.component';
     HeaderComponent,
     BooksListComponent,
     AddBookComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,10 @@ import { AddBookComponent } from './components/add-book/add-book.component';
   }, {
     provide: HTTP_INTERCEPTORS,
     useClass: ErrorInterceptor,
+    multi: true
+  }, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: LoaderInterceptor,
     multi: true
   }],
   bootstrap: [AppComponent]

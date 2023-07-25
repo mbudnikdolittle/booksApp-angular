@@ -11,6 +11,7 @@ import { BookComponent } from './components/book/book.component';
 import {HeaderComponent} from "./shared/header/header.component";
 import { BooksListComponent } from './components/books-list/books-list.component';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { AddBookComponent } from './components/add-book/add-book.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     BookComponent,
     HeaderComponent,
     BooksListComponent,
+    AddBookComponent,
   ],
   imports: [
     BrowserModule,

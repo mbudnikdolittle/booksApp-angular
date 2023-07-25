@@ -1,1 +1,6 @@
 <p>books-list works!</p>
+<app-add-book (nameFromParent)="addBookTitle($event)"></app-add-book>
+
+<ul>
+    <li *ngFor="let title of booksTitles">{{title}}</li>
+</ul>

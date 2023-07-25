@@ -2,5 +2,5 @@
 <app-add-book (nameFromParent)="addBookTitle($event)"></app-add-book>
 
 <ul>
-    <li *ngFor="let title of booksTitles">{{title}}</li>
+    <li *ngFor="let book of books">{{book.title}} - {{book.author}}</li>
 </ul>
